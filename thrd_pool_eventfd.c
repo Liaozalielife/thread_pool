@@ -252,7 +252,7 @@ thrdpool_waitdone(thrdpool_t *pool) {
     for (i=0; i<pool->thrd_count; i++) {
         pthread_join(pool->threads[i], NULL);
     }
-    //__taskqueue_destroy(pool->task_queue);
-    //free(pool->threads);
-    //free(pool);
+    __taskqueue_destroy(pool->task_queue);
+    free(pool->threads);
+    free(pool);
 }
